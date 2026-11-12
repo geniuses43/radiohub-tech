@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.radiohub",
+      "sha256_cert_fingerprints": [
+        "6C:D6:8A:5F:62:F6:80:0F:77:2F:EE:EC:DE:3C:A1:EF:95:98:15:71:5F:4A:AE:BB:A7:1A:E9:E2:66:84:8F:6C"
+      ]
+    }
+  }
+]
