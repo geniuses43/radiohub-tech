@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["NR7VRAP936.com.emg.radiohub"],
+        "components": [
+          { "/": "/station/*", "comment": "станции, потоки и города" },
+          { "/": "/podcasts/*", "comment": "подкасты" },
+          { "/": "/", "comment": "главная" }
+        ]
+      }
+    ]
+  }
+}
