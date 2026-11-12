@@ -1,11 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { androidIntent, STORE, withUtm } from '@/lib/site';
+import { androidIntent, asset, STORE, withUtm } from '@/lib/site';
 
 /** Кнопка «Открыть в приложении»: Android — intent на этот же адрес, iOS — App Store, компьютер — страница приложения */
 export function OpenInApp({ path, className = '' }: { path: string; className?: string }) {
-  const [href, setHref] = useState('/app/');
+  const [href, setHref] = useState(asset('/app/'));
   useEffect(() => {
     const ua = navigator.userAgent;
     if (/Android/i.test(ua)) setHref(androidIntent(path, 'open_in_app'));

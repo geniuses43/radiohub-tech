@@ -8,7 +8,7 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { SmartBanner } from '@/components/SmartBanner';
 import { stations } from '@/lib/catalog';
-import { IOS_APP_ID, SITE_NAME, SITE_URL } from '@/lib/site';
+import { asset, BASE, IOS_APP_ID, SITE_NAME, SITE_URL } from '@/lib/site';
 import { liveItem, sideItem } from '@/lib/items';
 import './globals.css';
 
@@ -33,7 +33,9 @@ export const metadata: Metadata = {
   description:
     'Европа Плюс, Дорожное Радио, Ретро FM, Радио 7, Новое Радио, Studio 21, Калина Красная и Эльдорадио в прямом эфире. Что играет сейчас, тематические потоки, региональные эфиры и подкасты. Бесплатно и без регистрации.',
   applicationName: SITE_NAME,
-  icons: { icon: '/app-icon.png', apple: '/app-icon.png' },
+  icons: { icon: asset('/app-icon.png'), apple: asset('/app-icon.png') },
+  // Пробная выкладка в подпапке не должна попадать в поисковики
+  ...(BASE ? { robots: { index: false, follow: false } } : {}),
   itunes: { appId: IOS_APP_ID },
   openGraph: { siteName: SITE_NAME, locale: 'ru_RU', type: 'website' },
   formatDetection: { telephone: false },

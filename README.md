@@ -49,6 +49,16 @@ error_page 404 /404.html;
 location = /.well-known/apple-app-site-association { default_type application/json; }
 ```
 
+### Пробная выкладка на GitHub Pages
+
+Сайт для просмотра лежит на https://geniuses43.github.io/radiohub-tech/ (ветка `gh-pages`, закрыт от поисковиков). Там он живёт в подпапке, поэтому собирается отдельно:
+
+```bash
+BASE_PATH=/radiohub-tech npm run build   # сборка для подпапки, с запретом индексации
+# содержимое out/ + пустой файл .nojekyll выложить в ветку gh-pages
+npm run build                            # вернуть обычную сборку для локального просмотра
+```
+
 ## Откуда данные
 
 - Станции, потоки, города, подкасты: `https://back-radiohub.vvdev.ru/api` (тот же бэкенд, что у приложения; переменная `RADIOHUB_API`, если адрес сменится).

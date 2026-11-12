@@ -1,4 +1,5 @@
 import raw from '@data/catalog.json';
+import { BASE } from './site';
 
 export type SideStream = {
   id: string;
@@ -61,7 +62,15 @@ export type Show = {
 };
 
 type Catalog = { generatedAt: string; stations: Station[]; shows: Show[] };
-const catalog = raw as Catalog;
+/** Картинки в снимке лежат как /media/…: при выкладке в подпапку дописываем её. */
+const rebase = <T,>(v: T): T => {
+  if (!BASE) return v;
+  if (typeof v === 'string') return (v.startsWith('/media/') ? BASE + v : v) as T;
+  if (Array.isArray(v)) return v.map(rebase) as T;
+  if (v && typeof v === 'object') return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, rebase(x)])) as T;
+  return v;
+};
+const catalog = rebase(raw as Catalog);
 
 export const generatedAt = catalog.generatedAt;
 export const stations = catalog.stations;

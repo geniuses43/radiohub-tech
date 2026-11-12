@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { androidIntent } from '@/lib/site';
+import { androidIntent, asset } from '@/lib/site';
 
 const KEY = 'rh:bannerHiddenUntil';
 const BOTS = /Googlebot|YandexBot|bingbot|AhrefsBot|SemrushBot|Lighthouse|HeadlessChrome/i;
@@ -47,7 +47,7 @@ export function SmartBanner() {
       <button type="button" className="sbanner__close" onClick={close} aria-label="Закрыть">
         ×
       </button>
-      <img src="/app-icon.png" alt="" width={44} height={44} className="sbanner__icon" />
+      <img src={asset('/app-icon.png')} alt="" width={44} height={44} className="sbanner__icon" />
       <div className="sbanner__text">
         <b>РадиоХаб</b>
         <span>8 станций в одном приложении</span>

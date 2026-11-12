@@ -2,6 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import type { PlayItem } from '../player/PlayerProvider';
+import { asset } from '@/lib/site';
 
 /**
  * Город слушателя — один на весь сайт. От него зависят только основные эфиры станций
@@ -42,7 +43,7 @@ const ASKED = 'rh:cityAsked';
 
 let citiesP: Promise<CityRec[]> | null = null;
 const loadCities = () =>
-  (citiesP ??= fetch('/geo/cities.json')
+  (citiesP ??= fetch(asset('/geo/cities.json'))
     .then((r) => (r.ok ? (r.json() as Promise<CityRec[]>) : []))
     .catch(() => {
       citiesP = null;

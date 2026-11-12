@@ -1,4 +1,8 @@
 export const SITE_URL = 'https://radiohub.tech';
+/** Подпапка, в которой лежит сайт (пусто на своём домене, /radiohub-tech на GitHub Pages) */
+export const BASE = process.env.NEXT_PUBLIC_BASE_PATH || '';
+/** Адрес файла из public с учётом подпапки */
+export const asset = (p: string) => BASE + p;
 export const SITE_NAME = 'РадиоХаб';
 
 export const ANDROID_PACKAGE = 'com.radiohub';
